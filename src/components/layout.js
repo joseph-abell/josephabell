@@ -1,13 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import {Link} from 'gatsby';
 
-import { rhythm, scale } from "../utils/typography"
+import {rhythm, scale} from '../utils/typography';
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const {location, title, children} = this.props;
+    const rootPath = `${__PATH_PREFIX__}/`;
+    let header;
 
     if (location.pathname === rootPath) {
       header = (
@@ -16,40 +16,32 @@ class Layout extends React.Component {
             ...scale(1.5),
             marginBottom: rhythm(1.5),
             marginTop: 0,
-          }}
-        >
+          }}>
           <Link
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
+              color: `rgb(107,187,233)`,
             }}
-            to={`/`}
-          >
+            to={`/`}>
             {title}
           </Link>
         </h1>
-      )
+      );
     } else {
       header = (
-        <h3
+        <Link
           style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `rgb(107,187,233)`,
+            ...scale(0.7),
+            fontFamily: `'Rosario', sans-serif`,
           }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
+          to={`/`}>
+          {title}
+        </Link>
+      );
     }
     return (
       <div
@@ -58,18 +50,12 @@ class Layout extends React.Component {
           marginRight: `auto`,
           maxWidth: rhythm(24),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+        }}>
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;
