@@ -16,7 +16,7 @@ Theme.overrideThemeStyles = () => {
       height: `100%`,
     },
     body: {
-      background: `rgba(178, 102, 0, 0.2)`,
+      background: `rgba(178, 102, 0, 0.15)`,
       color: `rgba(255, 255, 255, 0.7)`,
       minHeight: `100%`,
     },
