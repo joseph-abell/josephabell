@@ -13,11 +13,12 @@ Theme.overrideThemeStyles = () => {
     },
     html: {
       background: `#000`,
+      height: `100%`,
     },
     body: {
       background: `rgba(178, 102, 0, 0.2)`,
       color: `rgba(255, 255, 255, 0.7)`,
-      height: `100%`,
+      minHeight: `100%`,
     },
   };
 };
