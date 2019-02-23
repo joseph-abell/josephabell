@@ -17,7 +17,7 @@ Theme.overrideThemeStyles = () => {
     body: {
       background: `rgba(178, 102, 0, 0.2)`,
       color: `rgba(255, 255, 255, 0.7)`,
-      height: `100vh`,
+      height: `100%`,
     },
   };
 };
