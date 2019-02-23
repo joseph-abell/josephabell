@@ -4,11 +4,20 @@ import Theme from 'typography-theme-twin-peaks';
 Theme.overrideThemeStyles = () => {
   return {
     a: {
-      color: `rgb(107,187,233)`,
+      color: `rgba(107,187,233,0.8)`,
       backgroundImage: `none`,
+      textShadow: `#333`,
     },
     blockquote: {
-      borderLeft: `0.28rem solid rgb(107,187,233)`,
+      borderLeft: `0.28rem solid rgba(107,187,233,0.8)`,
+    },
+    html: {
+      background: `#000`,
+    },
+    body: {
+      background: `rgba(178, 102, 0, 0.2)`,
+      color: `rgba(255, 255, 255, 0.7)`,
+      height: `100vh`,
     },
   };
 };

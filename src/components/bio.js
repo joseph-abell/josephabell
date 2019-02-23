@@ -14,7 +14,7 @@ function Bio() {
           <div
             style={{
               display: `flex`,
-              marginBottom: rhythm(2.5),
+              marginBottom: rhythm(0.5),
             }}>
             <Image
               fixed={data.avatar.childImageSharp.fixed}
@@ -22,7 +22,8 @@ function Bio() {
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
-                minWidth: 50,
+                minWidth: 64,
+                minHeight: 64,
                 borderRadius: `100%`,
               }}
               imgStyle={{
