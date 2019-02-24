@@ -27,7 +27,7 @@ TDD isn't perfect. It's sometimes hard to figure out how to TDD with existing co
 
 ## Extra Advice
 
-* Make sure your code is as pure and immutable as possible.
+* Make sure your code is as pure as possible.
 * Try to keep the unit of code small. When you feel that adding more hardcoded values to your code to make it pass would make longer code than doing it properly, that's a good time for factoring in more complexity.
 * Push against the urge to write your code without tests. Writing your tests as you go along makes your code do what you think it does, and it helps the tests cover the acceptance criteria, rather than assumptions and mistaked baked into the code. 
 * Leave a space for tests which account for user error. Make sure if bugs arise with the code due to misshapen inputs, you add tests to capture the regressions. It's hard to think about any that could occur before you sre using your code in earnest, and at the moment of writing you'll be trying to fix things that are not broken, but at least keep it in mind that there is a place for these tests eventually.
