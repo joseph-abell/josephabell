@@ -3,10 +3,8 @@ title: Code Purity
 date: "2019-02-24T07:00:00.000Z"
 ---
 
-One of the most frequent causes of bugs in code is when values your code is relying on change from underneath you. Maybe you were relying on data that gets deleted elsewhere. Maybe you have multiple areas of a website contribute to a feed, and both trigger an addition to a feed at roughly the same time, leading to one addition to be ignored.
+One of the most frequent causes of bugs in code is when values your code is relying on change from underneath you. Maybe you were relying on data that gets deleted elsewhere. Maybe you have multiple areas of a website contribute to a feed, and both trigger an addition to a feed at roughly the same time, leading to one addition to be ignored. Code purity helps deal with these bugs by making each unit of code easier to reason with.
 
-## Definition of pure code
+When passing inputs into a function, make copies of any input that you are going to change. By using the copies to create the output, we make sure that any areas of code relying on the inputs are not affected by our code.
 
-* When given the same inputs multiple times, the output will be identical. 1 + 1 = 2.
-* All inputs should be immutable. This means that if you want to change them, you should create a copy of the value, mutate is as you wish, and return the mutated value. If all your code follows this rule, it stops other code from changing the value of your inputs while you are using them.
-* Rely on code composition and small units of code to bring functionality. Let the data flow between functions to give you the desired output.
+If you make sure all of your code is pure, we get an extra benefit. We can use multiple small pure functions together and compose them together to make complex results. As long as every function is pure, we will be able to make reliable assumptions on the result of the final function.
