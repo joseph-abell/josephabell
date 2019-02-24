@@ -3,13 +3,13 @@ title: Test Driven Development
 date: "2019-02-23T23:00:00.000Z"
 ---
 
-I recently gave a talk to my colleagues about test driven development (TDD). My slides can be found at <http://tdd.josephabell.co.uk>. They go into an example of how I TDD. For a TLDR, read on.
+Slides for a talk on Test Driven Development (TDD) can be found at <http://tdd.josephabell.co.uk>.
 
-I find TDD to be a fantastic tool, which I use as much as I can when writing any non-trivial code. It helps document the process of writing code, helps future developers follow your thought process, and if you have a terrible memory like I do, it can keep you on track while you wait for your code to build.
+TDD is a fantastic tool, which I use often when writing any non-trivial code. It helps document the functionality of your code, and helps future developers, including yourself, follow your thought process. If you have a terrible memory like I do, it keeps you on track between breaks.
 
-TDD, mixed with Pair Programming, and functional programming, made me more sure about the quality of my work. The tiny steps towards a closer goal help fight against writer's block, and the documentation that comes out of the tests helps fight against scope creep, and helps make sure I've not missed any Acceptance criteria.
+TDD, when mixed with Pair Programming and Functional Programming techniques, makes me more sure about the quality of my work. The tiny steps towards a closer goal help fight against writer's block, and each new test helps make sure I've not missed any Acceptance criteria. If the code you are writing has no side effects, and the unit of code is relatively small in size, this is a fantastic way to be confident in your work, which is the whole value of testing.
 
-TDD isn't perfect. It's sometimes hard to figure out how to TDD with existing code, especially if that code was written before we decided to do TDD. When you are chasing down a bug, it can be hard to know where to add the next tests. Sometimes it can feel like you are getting bogged down when you feel like you can knock out the code quickly.
+TDD isn't perfect. It's sometimes hard to figure out how to TDD with existing code, especially if that tests that came before are poorly written. I've found myself fighting the urge to completely rewrite, or at least reorder unit tests when this happens. When you are chasing down a bug, it can be hard to know where to add the next tests. Sometimes it can feel like you are getting bogged down when you feel like you can knock out the code quickly.
 
 ## My TDD Checklist
 
@@ -20,8 +20,10 @@ TDD isn't perfect. It's sometimes hard to figure out how to TDD with existing co
 * Make sure each test is the most basic logical step from the one before.
 * Make sure your code is the most simple way to make the test pass.
 * Make the complexity of the task at hand be captured by the sum of your tests.
+* Use multiple tests to guard against hardcoded values.
 * Make sure to keep the unit of code small.
-* Start with the happy path, then move on to the null handling checks, and rely on a type checker like Flow or Typescript to keep your types in check.
+* Start with the happy path - make sure the outcome of your code happens.
+* Move on to the null handling checks. Rely on a type checker like Flow or Typescript to keep your types in check. Document your types effectively, don't just say the type is a function or an object, describe what the functions input and outputs are, or describe the values inside the object.
 * Make sure your code is as pure and immutable as possible.
 * Work closely with QA if you can, to see if they can spot any areas you've missed, and what areas they need to consider in Acceptance or Manual Testing.
 * Push against the urge to write your code without tests. Writing your tests as you go along makes your code do what you think it does, and it helps the tests cover the acceptance criteria, rather than assumptions and mistaked baked into the code. 
