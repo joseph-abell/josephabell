@@ -13,22 +13,22 @@ TDD isn't perfect. It's sometimes hard to figure out how to TDD with existing co
 
 ## My TDD Checklist
 
-* Write tests before you write your code.
-* Make sure your tests fail before you write your code.
-* Make sure that your tests pass after you have written the new addition to your code.
-* If your test was passing before writing code, make sure to break your code to see the test fail.
-* Start with a test making sure the code you are testing exists. If the code has been removed, you will have lots of failing tests, and this one will tell you why.
+* Write tests before writing code.
+* Tests fail before writing code.
+* Tests pass in the expected way after writing the new code.
+* If tests pass before writing code, make sure to break the code to see the test fail in the intended way. Use different inputs in the test that show the code failing.
+* Start with a test that ensures that the code exists. If the code gets removed in the future, this test will tell you why future tests have started failing.
+* Start with the happy path - make sure the outcome of your code happens is the intended one.
 * Make sure each test is the most basic logical step from the one before.
 * Make sure your code is the most simple way to make the test pass.
 * Make the complexity of the task at hand be captured by the sum of your tests. Avoid the complexity in your code, if you can.
-* Use multiple tests with different inputs to guard against hardcoded values.
-* Try to keep the unit of code small. When you feel that adding more hardcoded values to your code to make it pass would make longer code than doing it properly, that's a good time for factoring in more complexity.
-* Start with the happy path - make sure the outcome of your code happens is the intended one.
-* Move on to the null handling checks, and likely unintended incorrent value checks.
-* Make sure your code is as pure and immutable as possible.
+* Use multiple tests with different inputs to guard against hardcoded values and unintended inputs.
+* When you are happy that your code is well defended against likely misuse, and your tests match up with the acceptance criteria, stop. Your job is done. Any more work is feature creep.
 
 ## Extra Advice
 
+* Make sure your code is as pure and immutable as possible.
+* Try to keep the unit of code small. When you feel that adding more hardcoded values to your code to make it pass would make longer code than doing it properly, that's a good time for factoring in more complexity.
 * Push against the urge to write your code without tests. Writing your tests as you go along makes your code do what you think it does, and it helps the tests cover the acceptance criteria, rather than assumptions and mistaked baked into the code. 
 * Leave a space for tests which account for user error. Make sure if bugs arise with the code due to misshapen inputs, you add tests to capture the regressions. It's hard to think about any that could occur before you sre using your code in earnest, and at the moment of writing you'll be trying to fix things that are not broken, but at least keep it in mind that there is a place for these tests eventually.
 * Rely on a type checkers like Flow or Typescript to keep your types in check. Document your types effectively, don't just say the type is a function or an object, describe what the functions input and outputs are, or describe the values inside the object.
