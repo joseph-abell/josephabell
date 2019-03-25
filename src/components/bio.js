@@ -31,11 +31,11 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong>, Senior Javascript Developer
-              from York, UK.
+              <strong>{author}</strong> is a Ukulele playing Senior Javascript
+              Developer from York, UK.
               <br />
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+                Follow him on Twitter
               </a>
             </p>
           </div>
