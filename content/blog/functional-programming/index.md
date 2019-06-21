@@ -10,7 +10,7 @@ As always, I am attempting to put what I learn in practise, although with some o
 ## Definition
 
 - Functional Programming is declarative. Examples include SQL, where you describe what you want to do to the table. `SELECT * FROM users WHERE id = 100`.
-- Avoid control flow. Less if, for and while loops, more reduce, map, and ternary operators.
+- Avoid control flow. Less `if, for and while loops`, more `reduce, map, and ternary operators`.
 - Avoid throwing errors, return them instead, so the flow of data is not broken and the errors can be managed further down the chain.
 - Avoid side effects. Make sure all values in a function are called as inputs or are created in the function. Make sure any inputs are not edited, and edits occur on copies of the inputs.
 
