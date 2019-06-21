@@ -10,9 +10,9 @@ making a difference in how my logic flows from one to another.
 
 ## Definition
 
-- A monoid takes two values of the same type, and creates a third value of the same type. Numerical addition and string concatenation are examples.
+- A monoid is a function that takes two values of the same type, and returns a third value of the same type. Numerical addition and string concatenation are examples.
 - You should be able to break up a chain of monoids, run them concurrently, and as long as you run them in the same order, you should get the same result. (1 + 2) + 3 === 1 + (2 + 3).
-- There should be a value that acts as a zero in addition. If you add zero to a number, you get the other number back. In string concatenation that is an empty string, in number multiplication the neutral value is 1.
+- There should be a value that acts as a neutral value. An example of this is zero in addition. If you add zero to a twelve, you get twelve back. In string concatenation that is an empty string, in number multiplication the neutral value is 1. For a function, if the unit takes one value, the function is `a => a`.
 
 ## Benefits of Monoids
 
@@ -43,13 +43,13 @@ const double = a => a * 2;
 const addOneThenDouble = flow(add1, double);
 const showResult = a => console.log(a);
 
-flow(addOneThenDouble, flow(add, showResult))(3); // 9
-flow(flow(addOneThenDouble, add), showResult)(3); // 9
+flow(addOneThenDouble, flow(add1, showResult))(3); // 9
+flow(flow(addOneThenDouble, add1), showResult)(3); // 9
 ```
 
 - We have a neutral value: `val => val;`
 
-## Monoids and Array.reduce are my friend.
+## Monoids and Array.reduce are friends
 
 We can use flow as our function to pass into Javascript's reduce method.
 All we need is the neutral value to pass as the second argument to reduce.
@@ -88,7 +88,7 @@ const data = asyncFlow(getData, getJson)(23);
 
 ## Monoids in multi-threaded languages
 
-If we had more than one threadd to work with in Javascript, we've by able to split
+If we had more than one thread to work with in Javascript, we've by able to split
 intensive computations down, using each thread to do the work. as long as we join
 the monoids back up, we have should have the same result as we would running the
 computations sequentially.
