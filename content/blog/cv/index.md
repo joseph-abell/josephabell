@@ -1,6 +1,6 @@
 ---
 title: CV
-date: '2019-05-20T20:00:00.000Z'
+date: '2019-07-11T22:47:00.000Z'
 tags: 'Job Hunting'
 ---
 
