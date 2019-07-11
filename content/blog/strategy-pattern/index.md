@@ -12,7 +12,7 @@ The Strategy pattern lets you decouple functionality from an object. Doing so le
 
 There are a few ways to use the strategy pattern. The first way is to create a class. A class comes with a constructor method. The constructor method can set up internal variables with the passed in  functionality.
 
-The example here uses a curried function and relying on scoped variables. A curried function in a partially applied function. We call the curried function with the functionality, and it returns a new function. This new function in a batteries included version of the functionality. It has everything it needs to work when called next.
+The example in github uses a curried function, and relies on variable scoping to provide functionality. A curried function in a partially applied function. We call the curried function with the functionality, and it returns a new function. This new function in a batteries included version of the functionality. It has everything it needs to work when called next.
 
 By calling the makeDuck method with custom fly and quack methods, our rubber duck cannot fly. It squeaks as intended.
 
