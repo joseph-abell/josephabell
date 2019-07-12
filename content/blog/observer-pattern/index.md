@@ -42,3 +42,11 @@ It should be given a subject as part of it's initialisation, and should register
 to be an observer while initialising. From there, it should have an update method, which will be called
 when the counter changes. It should also store a UUID, which it should pass back to the counter when
 it wants to unregister as an observer.
+
+## When to use
+
+The Observer pattern Is useful for situations where you have a one to many relationship,
+where many observers are waiting for updates from a piece of state. By letting the
+source of the state alert the many observers when the state has changed, we can avoid
+polling for content changes, which is overkill at even a one to one relationship, and
+gets worse when the observer count increases.
