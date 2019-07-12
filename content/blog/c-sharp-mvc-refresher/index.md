@@ -10,6 +10,8 @@ When I first started working as a web developer, I was a CSS developer for a .NE
 
 All the following references to code are using [this url](https://github.com/gerbilsinspace/mvc-refresher/tree/master/mvc-refresher) as the relative path.
 
+Here are my notes on how the MVC .NET app hangs together. Odds are, this is probably wrong in a few ways, but this is what I have.
+
 ## ./Program.cs
 
 Program is the starting point of the app.
