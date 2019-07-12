@@ -1,5 +1,5 @@
 ---
-title: C# MVC Refresher
+title: C# .NET MVC Refresher
 date: '2019-07-12T07:14:41.000Z'
 tags: 'C# .NET MVC'
 ---
