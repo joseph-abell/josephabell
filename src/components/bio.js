@@ -1,15 +1,15 @@
 import React from 'react';
-import {StaticQuery, graphql} from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
-import {rhythm} from '../utils/typography';
+import { rhythm } from '../utils/typography';
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const {author, social} = data.site.siteMetadata;
+        const { author, social } = data.site.siteMetadata;
         return (
           <div
             style={{
@@ -32,7 +32,8 @@ function Bio() {
             />
             <p>
               <strong>{author}</strong> is a Ukulele playing Senior Javascript
-              Developer from York, UK.
+              Developer from York, UK. He blogs to help remind him about things
+              he has learned.
               <br />
               <a href={`https://twitter.com/${social.twitter}`}>
                 Follow him on Twitter
