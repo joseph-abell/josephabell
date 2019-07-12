@@ -19,9 +19,13 @@ Program is the starting point of the app.
 ### Program.Main
 
 Main is the first function to run. We call the Program.CreateWebHostBuilder
-function to give us a WebHostBuilder. We then call the build method,
-which will give us a built version of the WebHost, which we call the run
-method on.
+function. CreateWebHostBuilder is a factory method which we pass some basic
+environment variables, and returns us a WebHostBuilder. A WebHostBuilder is a
+class which builds the services we need, and builds a WebHost, which is the
+server, which serves up our app.
+
+We call the build method on WebHostBuilder, which will give us a built version
+of the WebHost. We call the run method on the WebHost, which should run our server.
 
 ### Program.CreateWebHostBuilder
 
@@ -52,21 +56,33 @@ in through injection.
 
 ### Constructor
 
-After Program has done it's thing, we get into the Startup constructor function.
-It is passed the config we have setup during the CreateDefaultBuilder in
-`./Program.cs` through dependency injection from CreateDefaultBuilder. We
-make that Configuration available to other methods in Startup.
+When we pass the Startup method into the UseStartup method on WebHost.CreateWebHostBuilder,
+this allows the server access to run our code after it is up and running. When the WebHost
+is set up correctly, WebHost will call our Startup code. As Startup is a Class, it's
+constructor method runs the required setup needed for Startup.
+
+All the constructor does in this case is take a copy of the construction object which is
+passed into it during instantiation. Our construction object should have more environment
+variables, as it should receive them during the WebHost setup. My first area of confusion
+is at this point. It isn't immediately obvious where we are getting our configuration
+object from.
 
 ###  ConfigureServices
 
-Used to inject the services we need before using them.  The comment
+Used to inject the services we need before using them. The comment
 describing ConfigureServices says this is called by the runtime.
-It receives services through dependency injection, not entirely sure where
-they come from.
+Once again, as this is called by runtime, I'm not entirely sure where
+the passed in services come from.
 
-We use this to set up the cookie policy, and call services.AddMvc, which gives
+We can now add some custom services to the app by adding them to the services collection.
+
+We set up the cookie policy, and call services.AddMvc, which gives
 the server the MVC services it needs to understand the MVC structure.
 [AddMvc Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc?view=aspnetcore-2.2#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_)
+
+We also add the database context here. In omy case I'm using postgres as it is cross platform,
+and I have previous experience using it. I'll try my hardest to use default SQL, rather than
+the postgres specific implementation.
 
 ### Configure
 
@@ -80,11 +96,11 @@ app.UseHsts. [Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/en-us/as
 * Make sure we redirect http calls to https
 * setup static file usage
 * setup our cookie policy
-* Use the MVC with a custom route lambda function. I would have expected to
-see this function in its own file, but I guess it is small enough. Lambda
-functions look like they work the same way arrow functions work in JS, makes
-an implicit return on the first line of code inside the function. I’m not sure
-why you’d still need the curly braces here though, not sure what that gives us.
+
+And finally, we provide the MVC framework with a custom router lambda function.
+I would have expected to see the router in its own file, but I guess it is small enough.
+Lambda functions look like they work the same way arrow functions work in JS. It creates an implicit return on the last line of code inside the function. You can add curly braces here to allow
+more than one expression to be entered into the lambda.
 
 ## Routing
 
