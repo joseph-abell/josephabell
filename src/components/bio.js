@@ -34,7 +34,8 @@ function Bio() {
               <strong>{author}</strong> is a Ukulele playing Senior Javascript
               Developer from York, UK. He blogs to help remind him about things
               he has learned.
-              <br />
+            </p>
+            <p>
               <a href={`https://twitter.com/${social.twitter}`}>
                 Follow him on Twitter
               </a>
