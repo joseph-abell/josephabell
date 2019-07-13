@@ -67,7 +67,7 @@ variables, as it should receive them during the WebHost setup. My first area of 
 is at this point. It isn't immediately obvious where we are getting our configuration
 object from.
 
-###  ConfigureServices
+### ConfigureServices
 
 Used to inject the services we need before using them. The comment
 describing ConfigureServices says this is called by the runtime.
@@ -92,7 +92,7 @@ the runtime, after ConfigureServices.
 * If we are in development, use the debug error page,
 * If we are not in development, use a generic error page.
 * If we are not in development, force webpages to serve over https by calling
-app.UseHsts. [Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio#http-strict-transport-security-protocol-hsts) 
+app.UseHsts. [Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio#http-strict-transport-security-protocol-hsts)
 * Make sure we redirect http calls to https
 * setup static file usage
 * setup our cookie policy
@@ -129,7 +129,7 @@ data to the view layer. As far as I can tell, the name of the files in the
 controllers folder doesn’t matter, as it gets all the controllers and matches
 up the routing to the names of the classes within those files. That being
 said, naming the files the same as the names of the classes makes sense for
-finding code, and is best practice. 
+finding code, and is best practice.
 
 Although we are using MVC, we don’t necessarily need to return a view from a
 router here. We could return a string or a JSON blob instead of a HTML view
@@ -144,7 +144,7 @@ This will return a view using the same naming conventions followed by the
 controller. If we have a router like the default, `home/index/`, The
 controller we need would be the HomeController, and the specific action
 method would be the index action. This would map directly to a View that
-lives in a Home folder, and is Index.cshtml. 
+lives in a Home folder, and is Index.cshtml.
 
 I’m not sure whether we can break into C# at any time inside a cshtml file
 by using `@{}` syntax, or if that is specifically reserved for metadata at
@@ -169,7 +169,7 @@ they will have database credentials in them though...
 ## Models
 
 There are two types of models here, the Models and the ModelContexts. The
-Models define the type of data we will be storing in the database. The 
+Models define the type of data we will be storing in the database. The
 ModelContext will describe the relationship between the database and the Models.
 ModelContexts define the plural name of the model.
 
@@ -180,6 +180,9 @@ following commands.
 
 * `dotnet ef migrations add initial`, which creates the initial migration
 * `dotnet ef database update`, which updates the database with the migration changes
+
+More information about how to use migrations, including how to set up relationships,
+can be found a the [microsoft docs](https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/)
 
 Migrations describe changes to the database over time. They allow for
 replicatable, and safe changes to the database, by giving you a history of
