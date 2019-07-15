@@ -199,7 +199,8 @@ public int EmployeeID { get; set; }
 We also have other types of Decorators we can use here. These include `DataType`
 so you can change the input from a textbox to email or password, `Required` to
 check if a field is required, `StringLength` for checking basic password length
-rules, and `Compare` for comparison checks.
+rules, and `Compare` for comparison checks. Error handling is done clientside
+using jQuery, I'd want to look at replacing this.
 
 ## Migrations
 
