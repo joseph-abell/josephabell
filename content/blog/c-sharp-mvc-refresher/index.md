@@ -186,6 +186,16 @@ Models define the type of data we will be storing in the database. The
 ModelContext will describe the relationship between the database and the Models.
 ModelContexts define the plural name of the model.
 
+If I want to add some error handling or change the display name for items in
+the form, I can decorate variables as I create them in the model.
+An example is as follows:
+
+```
+[Display(Name = "Employee ID")]
+[Range(10000, 99999, ErrorMessage = "You need to enter a valid Employee ID")]
+public int EmployeeID { get; set; }
+```
+
 ## Migrations
 
 Migrations are generated from the Models we have created, when I run the
