@@ -116,9 +116,12 @@ gave `/movies/edit/12`, as it names the third section of the slug as the ID. To
 add any more I’d need to add it as a query.
 
 We have the ability to add custom routes if we would like, by adding another
-call to routes.MapRoute. It doesn’t look like there is an order of precedence
-on routes, if you have a route that could lead to multiple controllers you
-will get an error.
+call to routes.MapRoute. There is an order of precedence with multiple calls to
+MapRoute. The router will check whether the URL matches the first call to MapRoute,
+then the second, and so on. Each router can provide a default. If you had a
+WebAPI route which started it's links with a /api prefix, but the rest of the url
+did not match, it would use the api default setup to choose the controller
+and action.
 
 ## Controllers
 
