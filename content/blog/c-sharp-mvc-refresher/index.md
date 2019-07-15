@@ -158,6 +158,16 @@ Partial Views within views to help build up stuff like a menu, which can be
 used in multiple views, and we are also able to set templates, surrounding
 views, for our view to be in.
 
+If we wanted to add a javascript tag into a view, we would be best off
+placing it in a custom section called Scripts. The scripts section is defined
+in the \_layout.cshtml file, just underneath other script imports. We need
+to do this to make sure that our dependencies for our scripts are in the
+correct order. If we wanted to use React to help out with our view logic,
+we need to make sure that we have imported React before we use it.
+
+To use a custom section, we need to add cs code in our view file like so:
+```@section Scripts {<script></script>}```
+
 ## Database
 
 As I'm currently working on a mac, I'm setting up the project to work with
