@@ -116,9 +116,12 @@ gave `/movies/edit/12`, as it names the third section of the slug as the ID. To
 add any more I’d need to add it as a query.
 
 We have the ability to add custom routes if we would like, by adding another
-call to routes.MapRoute. It doesn’t look like there is an order of precedence
-on routes, if you have a route that could lead to multiple controllers you
-will get an error.
+call to routes.MapRoute. There is an order of precedence with multiple calls to
+MapRoute. The router will check whether the URL matches the first call to MapRoute,
+then the second, and so on. Each router can provide a default. If you had a
+WebAPI route which started it's links with a /api prefix, but the rest of the url
+did not match, it would use the api default setup to choose the controller
+and action.
 
 ## Controllers
 
@@ -155,6 +158,16 @@ Partial Views within views to help build up stuff like a menu, which can be
 used in multiple views, and we are also able to set templates, surrounding
 views, for our view to be in.
 
+If we wanted to add a javascript tag into a view, we would be best off
+placing it in a custom section called Scripts. The scripts section is defined
+in the \_layout.cshtml file, just underneath other script imports. We need
+to do this to make sure that our dependencies for our scripts are in the
+correct order. If we wanted to use React to help out with our view logic,
+we need to make sure that we have imported React before we use it.
+
+To use a custom section, we need to add cs code in our view file like so:
+```@section Scripts {<script></script>}```
+
 ## Database
 
 As I'm currently working on a mac, I'm setting up the project to work with
@@ -172,6 +185,22 @@ There are two types of models here, the Models and the ModelContexts. The
 Models define the type of data we will be storing in the database. The
 ModelContext will describe the relationship between the database and the Models.
 ModelContexts define the plural name of the model.
+
+If I want to add some error handling or change the display name for items in
+the form, I can decorate variables as I create them in the model.
+An example is as follows:
+
+```
+[Display(Name = "Employee ID")]
+[Range(10000, 99999, ErrorMessage = "You need to enter a valid Employee ID")]
+public int EmployeeID { get; set; }
+```
+
+We also have other types of Decorators we can use here. These include `DataType`
+so you can change the input from a textbox to email or password, `Required` to
+check if a field is required, `StringLength` for checking basic password length
+rules, and `Compare` for comparison checks. Error handling is done clientside
+using jQuery, I'd want to look at replacing this.
 
 ## Migrations
 
