@@ -196,6 +196,11 @@ An example is as follows:
 public int EmployeeID { get; set; }
 ```
 
+We also have other types of Decorators we can use here. These include `DataType`
+so you can change the input from a textbox to email or password, `Required` to
+check if a field is required, `StringLength` for checking basic password length
+rules, and `Compare` for comparison checks.
+
 ## Migrations
 
 Migrations are generated from the Models we have created, when I run the
