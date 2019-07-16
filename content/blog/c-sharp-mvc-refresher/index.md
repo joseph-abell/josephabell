@@ -234,3 +234,14 @@ lots of boilerplate code.
 
 In the views, I let the new views use the default layout, and removed the
 surrounding head and body tags. Looks much nicer.
+
+## Separating out business logic from the MVC app for later reuse
+
+Following along with this [youtube video](https://www.youtube.com/watch?v=bIiEv__QNxw),
+we can separate out our model into multiple, so we have a model in our MVC app dedicated
+to our view layer, and we can create another model in a project which can focus on the
+data access and busines layer. This way if we wanted to make a desktop app, or a console
+app, we will be able to use the same data access code, and it isn't baked into the MVC
+project. By doing this, we should be able to use multiple tables to build up a view,
+for example so we don't store private information like hashed passwords with our public
+information like a username.
