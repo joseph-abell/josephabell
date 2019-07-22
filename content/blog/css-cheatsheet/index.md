@@ -2,6 +2,7 @@
 title: CSS Cheatsheet
 date: '2019-07-17T13:36:08.000Z'
 tags: 'CSS'
+sticky: false
 ---
 
 ## Display
