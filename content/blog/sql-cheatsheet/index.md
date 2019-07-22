@@ -14,7 +14,6 @@ SQL is a fantastic declarative programming language that I really enjoy using. F
 * Insert - Creates an item of an already createed thing. For example, if you have a table, insert a new row of the table.
 * Drop - Delete a database, table, column.
 
-
 ## Databases
 
 * Create - `CREATE DATABASE clowns`;

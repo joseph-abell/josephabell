@@ -5,7 +5,7 @@ tags: 'Functional Programming'
 sticky: false
 ---
 
-This post is a summary of what I have learned from https://marmelab.com/blog/2018/04/18/functional-programming-2-monoid.html.
+This post is a summary of what I have learned from [https://marmelab.com/blog/2018/04/18/functional-programming-2-monoid.html](https://marmelab.com/blog/2018/04/18/functional-programming-2-monoid.html).
 I have been been making a concerted effort in using this in my programming style recently, and it is
 making a difference in how my logic flows from one to another.
 
@@ -21,13 +21,13 @@ making a difference in how my logic flows from one to another.
 
 Other than the simple monoids mentioned above, we can make a monoid out of function composition. The compose method is one:
 
-```
+```js
 const compose = (f1, f2) => arg => f1(f2(arg));
 ```
 
 Athough for readabily, I prefer to reverse the order the functions are run in a flow or composeRight function.
 
-```
+```js
 const flow = (f1, f2) => arg => f2(f1(arg));
 ```
 
@@ -36,7 +36,7 @@ If you use flow, your `f1` function will be run before `f2`. Let's break down ho
 - If `f1` and `f2` are functions, flow returns a function.
 - We can break up a chain of flows. Example incoming.
 
-```
+```js
 const flow = (f1, f2) => arg => f2(f1(arg));
 
 const add1 = a => a + 1;
@@ -60,7 +60,7 @@ create the factorial of the passed in number.
 As an example, I tried to create a factorial function without using recursion.
 The hardest bit is creating the data we will work with, the rest is simple.
 
-```
+```js
 // We need an array which has every integer from a given number back to 1.
 // Array(5) gives us an array with empty items, which has a length of 5.
 // Array.from() takes an array and a factory function, and uses the function
@@ -79,7 +79,7 @@ factorial(5); // 120
 
 It is trivial to create an async version of the flow method.
 
-```
+```js
 const asyncFlow = (f1, f2) => async arg => await f2(await f1(arg));
 const getData = async id => await fetch(`http://icndb.com/jokes${id}`);
 const getJson = async response => await response.json();

@@ -191,7 +191,7 @@ If I want to add some error handling or change the display name for items in
 the form, I can decorate variables as I create them in the model.
 An example is as follows:
 
-```
+```c#
 [Display(Name = "Employee ID")]
 [Range(10000, 99999, ErrorMessage = "You need to enter a valid Employee ID")]
 public int EmployeeID { get; set; }
