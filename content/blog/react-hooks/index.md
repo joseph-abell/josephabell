@@ -184,3 +184,76 @@ const element = <Counter />;
 
 ReactDOM.render(element, document.getElementById('root'));
 ```
+
+## useMemo
+
+Returns a memoized value. It expects a function to run, and a list of dependencies. When useMemo is called the first time,
+the passed in function runs, and returns a result. the result is cached for later runs. If the dependencies do not change on
+a second run, the result from the first run is passed back, and the passed in function is not run. When the dependencies change,
+the function is run and the cached result is updated. This helps make sure computationally heavy functions are run as little as
+possible.
+
+You can also use useMemo to make sure that an array, function or object you are relying on is indeed equal. If you don't use useMemo,
+you will find out quite quickly that `[] === []` is actually false, because they are two arrays, created separately. If you did the
+following, the result would be true:
+
+```js
+const a = [];
+console.log(a === a); // true
+```
+
+So, we need to pass the exact array into the list of dependencies. The useMemo stores the exact array in memory for later use. :tada
+
+```js
+import React, { useMemo } from 'react';
+
+const Example = () => {
+    const a = useMemo(() => [], []); // only updates initially as we have no dependencies
+
+    const result = a === a; // true
+
+    return (
+        <div>{result && ('hi')}</di>
+    )
+}
+```
+
+## useCallback
+
+The useCallback hook is exactly the same as the useMemo hook, except that it only takes functions as it's first argument, rather than anything.
+you cannot use useCallback to cut down on expensive calculations though. You'll be passed the exact same function back, but you'll still
+be continuing to run it. So, only use it to make sure that the callback you are using is referentially equal, so your useEffect that relies
+on it doesn't accidentally spam a third party service.
+
+## useRef
+
+The useRef hook is very similar to useMemo, except that the data stored is mutable, meaning it can change from underneath us.
+An example of data that can do this is a DOM element. If we wanted to store the id for a setInterval, or a particular element on the page,
+this is what we would use.
+
+When we wrote class components in react, our state acted like this automatically. If we wanted to see the state in our app, then changed it,
+the initial value would change. Now, in function components, our state is immutable, meaning if we have read the state, we should never
+expect to see that value change on us. This prevents a ton of bugs, but sometimes, you really need to make an element turn purple.
+
+## useImperativeHandle
+
+I've never needed this, will probably never need this, so I'm not wasting my breath. I'm sure this will bite me later.
+
+## useDebugValue
+
+When you are debugging a custom hook, throw a useDebugValue in there to aid with logging.
+
+```jsx
+function useTheme() {
+    const [theme, setTheme] = useState('light');
+
+    // Show a label in React DevTools next to this Hook
+    // e.g. "Theme: 'light'"
+    useDebugValue(theme); // doesn't work in codepen?! :(
+    if (theme === 'light') {
+        setTheme('green')
+    }
+
+    return theme;
+}
+```
