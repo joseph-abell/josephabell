@@ -2,6 +2,7 @@
 title: C# .NET MVC Refresher
 date: '2019-07-16T07:13:08.000Z'
 tags: 'C# .NET MVC'
+sticky: false
 ---
 
 Code for this blog can be found at my [github](https://github.com/gerbilsinspace/mvc-refresher).

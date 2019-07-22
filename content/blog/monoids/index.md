@@ -2,6 +2,7 @@
 title: Monoids
 date: '2019-03-20T19:00:00.000Z'
 tags: 'Functional Programming'
+sticky: false
 ---
 
 This post is a summary of what I have learned from https://marmelab.com/blog/2018/04/18/functional-programming-2-monoid.html.

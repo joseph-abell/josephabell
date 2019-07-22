@@ -2,6 +2,7 @@
 title: Functional Programming
 date: '2019-04-20T21:00:00.000Z'
 tags: 'Functional Programming'
+sticky: false
 ---
 
 This post is a summary of a few different blog posts. The main one is https://marmelab.com/blog/2018/03/14/functional-programming-1-unit-of-code.html. I cannot recommend marmelab enough.

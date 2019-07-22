@@ -2,6 +2,7 @@
 title: CV
 date: '2019-07-16T22:47:00.000Z'
 tags: 'Job Hunting'
+sticky: true
 ---
 
 ## Contact

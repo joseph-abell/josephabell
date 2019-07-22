@@ -2,6 +2,7 @@
 title: Code Purity
 date: '2019-02-24T07:00:00.000Z'
 tags: 'Development Practises'
+sticky: false
 ---
 
 One of the most frequent causes of bugs in my code is when values my code's relying on changes from underneath me.

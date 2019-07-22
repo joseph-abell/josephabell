@@ -2,6 +2,7 @@
 title: Test Driven Development
 date: '2019-02-23T23:00:00.000Z'
 tags: 'Development Practices, Testing'
+sticky: false
 ---
 
 Slides for a talk on Test Driven Development (TDD) can be found at <http://tdd.josephabell.co.uk>.

@@ -2,6 +2,7 @@
 title: Observer Pattern
 date: '2019-07-12T15:13:00.000Z'
 tags: 'Object Oriented Programming'
+sticky: false
 ---
 
 I'm currently reading Head First Design Patterns by Freeman, Robson, Sierra and Bates.

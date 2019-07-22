@@ -2,6 +2,7 @@
 title: Strategy Pattern
 date: '2019-07-11T22:34:00.000Z'
 tags: 'Object Oriented Programming'
+sticky: false
 ---
 
 I'm currently working through Head First Design Patterns by Eric Freeman and Elisabeth Robson. It's good, and pretty challenging to translate to JS. The section on strategy pattern can be found in the introductory chapter: Welcome to Design Patterns.

@@ -2,6 +2,7 @@
 title: SQL Cheatsheet
 date: '2019-07-15T21:40:00.000Z'
 tags: 'SQL'
+sticky: false
 ---
 
 SQL is a fantastic declarative programming language that I really enjoy using. For my own sanity, here is a quick cheatsheet.

@@ -13,6 +13,41 @@ const Tag = ({ tag, index }) => (
   </>
 );
 
+const Post = ({ node }) => {
+  const title = node.frontmatter.title || node.fields.slug;
+  const tags = (node.frontmatter.tags || '').split(', ');
+
+  return (
+    <div key={node.fields.slug}>
+      <h3
+        style={{
+          marginBottom: rhythm(1 / 4),
+          marginTop: 0
+        }}
+      >
+        <Link
+          style={{ boxShadow: `none`, color: `rgba(107,187,233,1)` }}
+          to={node.fields.slug}
+        >
+          {title}
+        </Link>
+      </h3>
+      <small>
+        {node.frontmatter.sticky === false && node.frontmatter.date}
+        {tags[0].length > 0 && !node.frontmatter.sticky && (
+          <>
+            {' - '}
+            {tags.map((tag, index) => (
+              <Tag tag={tag} key={tag} index={index} />
+            ))}
+          </>
+        )}
+      </small>
+      <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+    </div>
+  );
+};
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props;
@@ -28,43 +63,17 @@ class BlogIndex extends React.Component {
             `portfolio`,
             `Joseph Abell`,
             `react`,
-            `javascript`
+            `javascript`,
+            `web development`,
+            'York UK'
           ]}
         />
         <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const tags = (node.frontmatter.tags || '').split(', ');
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                  marginTop: 0
-                }}
-              >
-                <Link
-                  style={{ boxShadow: `none`, color: `rgba(107,187,233,1)` }}
-                  to={node.fields.slug}
-                >
-                  {title}
-                </Link>
-              </h3>
-              <small>
-                {node.frontmatter.date}
-                {tags[0].length > 0 && (
-                  <>
-                    {' '}
-                    -{' '}
-                    {tags.map((tag, index) => (
-                      <Tag tag={tag} key={tag} index={index} />
-                    ))}
-                  </>
-                )}
-              </small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          );
+        {posts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
+          return (<Post node={node} key={node.fields.slug} sticky={true} />);
+        })}
+        {posts.filter(({ node }) => !node.frontmatter.sticky).map(({ node }) => {
+          return (<Post node={node} key={node.fields.slug} />);
         })}
       </Layout>
     );
@@ -91,6 +100,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            sticky
           }
         }
       }
