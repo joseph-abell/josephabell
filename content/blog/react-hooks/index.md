@@ -143,3 +143,44 @@ that can be used to identify the type of change you are making to the state.
 The action also has any data you need to make the change to the state.
 
 We can use a switch statement on the type of the action, and change the state.
+If you are using an object as state, make sure to return the whole object with
+your new changes in, as you could end up accidentally wiping other parts of
+the state.
+
+```jsx
+import React, {useReducer} from 'react';
+
+// it is fine to use an object as the state as long as you remember
+// to create a new object with all parts of the state accounted for
+// each time you make a change, you could end up accidentally losing
+// state. We only have one bit of state we care about, so I'm using
+// it directly.
+const initialState = 0;
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'increment':
+            return state + 1;
+        case 'decrement':
+            return state - 1;
+        default:
+            throw new Error();
+    }
+}
+
+const Counter = () => {
+    const [count, dispatch] = useReducer(reducer, initialState);
+
+    return (
+        <>
+            Count: {count}
+            <button onClick={() => dispatch({type: 'increment'})}>+</button>
+            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+        </>
+    );
+}
+
+const element = <Counter />;
+
+ReactDOM.render(element, document.getElementById('root'));
+```
