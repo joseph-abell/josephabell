@@ -69,26 +69,24 @@ this method again.
 If you have a subscription inside componentDidMount, you need to make sure you tear down the subscription
 to prevent memory leaks. Invalidate your timers, cancel network requests, clean up your subscriptions.
 
-## Other methods
+## Other methods - Error Handling
 
-### Error handling
-
-#### getDerivedStateFromError (outside of regular lifecycle)
+### getDerivedStateFromError (outside of regular lifecycle)
 
 If you want to catch errors from lifecycle methods from this component or child components, use this.
 This allows you to set the error state to true.
 
-#### componentDidCatch (outside of regular lifecycle)
+### componentDidCatch (outside of regular lifecycle)
 
 If you want to log errors to a file, do it here, as side effects are permitted here.
 
-### Misc
+## Other Methods - Misc
 
-#### setState
+### setState
 
 Used to update the state of the component in anything other than the constructor.
 
-#### forceUpdate
+### forceUpdate
 
 Don't use this. Used to force react to update your component. I've only used this
 for testing purposes, probably didn't even need it.
