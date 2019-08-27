@@ -48,55 +48,24 @@ class BlogIndex extends React.Component {
 	render() {
 		const { data } = this.props;
 		const siteTitle = data.site.siteMetadata.title;
-		const blogPosts = data.blog && data.blog.edges;
-		const musicPosts = data.music && data.music.edges;
+		const blogPosts = data.allMarkdownRemark && data.allMarkdownRemark.edges;
 
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
-				<SEO
-					title='Home'
-					keywords={[
-						`blog`,
-						`portfolio`,
-						`Joseph Abell`,
-						`react`,
-						`javascript`,
-						`web development`,
-						'York UK'
-					]}
-				/>
-				<Bio />
+				<SEO title='Music' />
 				{blogPosts &&
 				blogPosts.length > 0 && (
 					<Fragment>
-						<h2>
-							<Link to='/blog'>Web Dev Notes</Link>
-						</h2>
+						<h2>Music</h2>
 						{blogPosts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
 							return <Post node={node} key={node.fields.slug} sticky={true} />;
 						})}
 						{blogPosts.filter(({ node }) => !node.frontmatter.sticky).map(({ node }) => {
 							return <Post node={node} key={node.fields.slug} />;
 						})}
-
-						<Link to='/blog'>View more Web Dev Notes</Link>
 					</Fragment>
 				)}
-				{musicPosts &&
-				musicPosts.length > 0 && (
-					<Fragment>
-						<h2>
-							<Link to='/music'>Music</Link>
-						</h2>
-						{musicPosts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
-							return <Post node={node} key={node.fields.slug} sticky={true} />;
-						})}
-						{musicPosts.filter(({ node }) => !node.frontmatter.sticky).map(({ node }) => {
-							return <Post node={node} key={node.fields.slug} />;
-						})}
-						<Link to='/music'>View more Music</Link>
-					</Fragment>
-				)}
+				<Bio />
 			</Layout>
 		);
 	}
@@ -111,31 +80,9 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		music: allMarkdownRemark(
+		allMarkdownRemark(
 			filter: { frontmatter: { category: { eq: "music" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
-			limit: 3
-		) {
-			edges {
-				node {
-					excerpt
-					fields {
-						slug
-					}
-					frontmatter {
-						date(formatString: "MMMM DD, YYYY")
-						title
-						tags
-						sticky
-						category
-					}
-				}
-			}
-		}
-		blog: allMarkdownRemark(
-			filter: { frontmatter: { category: { eq: "web" } } }
-			sort: { fields: [frontmatter___date], order: DESC }
-			limit: 3
 		) {
 			edges {
 				node {

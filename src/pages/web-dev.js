@@ -52,22 +52,11 @@ class BlogIndex extends React.Component {
 
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
-				<SEO
-					title='Blog'
-					keywords={[
-						`blog`,
-						`portfolio`,
-						`Joseph Abell`,
-						`react`,
-						`javascript`,
-						`web development`,
-						'York UK'
-					]}
-				/>
+				<SEO title='Web Dev' />
 				{blogPosts &&
 				blogPosts.length > 0 && (
 					<Fragment>
-						<h2>Blog</h2>
+						<h2>Web Dev</h2>
 						{blogPosts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
 							return <Post node={node} key={node.fields.slug} sticky={true} />;
 						})}

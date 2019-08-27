@@ -52,7 +52,17 @@ class Layout extends React.Component {
 									marginRight: '20px'
 								}}
 							>
-								<Link to='/blog'>Blog</Link>
+								<Link to='/web-dev'>Web Dev</Link>
+							</li>
+							<li
+								style={{
+									display: 'inline-block',
+									marginTop: '38px',
+									fontFamily: `'Rosario',sans-serif`,
+									marginRight: '20px'
+								}}
+							>
+								<Link to='/music'>Music</Link>
 							</li>
 						</ul>
 					</nav>
@@ -96,7 +106,17 @@ class Layout extends React.Component {
 									marginRight: '20px'
 								}}
 							>
-								<Link to='/blog'>Blog</Link>
+								<Link to='/web-dev'>Web Dev</Link>
+							</li>
+							<li
+								style={{
+									display: 'inline-block',
+									marginTop: '13px',
+									fontFamily: `'Rosario',sans-serif`,
+									marginRight: '20px'
+								}}
+							>
+								<Link to='/music'>Music</Link>
 							</li>
 						</ul>
 					</nav>
