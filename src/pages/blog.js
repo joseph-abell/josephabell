@@ -49,12 +49,11 @@ class BlogIndex extends React.Component {
 		const { data } = this.props;
 		const siteTitle = data.site.siteMetadata.title;
 		const blogPosts = data.blog && data.blog.edges;
-		const musicPosts = data.music && data.music.edges;
 
 		return (
 			<Layout location={this.props.location} title={siteTitle}>
 				<SEO
-					title='Home'
+					title='Blog'
 					keywords={[
 						`blog`,
 						`portfolio`,
@@ -65,35 +64,19 @@ class BlogIndex extends React.Component {
 						'York UK'
 					]}
 				/>
-				<Bio />
 				{blogPosts &&
 				blogPosts.length > 0 && (
 					<Fragment>
-						<h2>
-							<Link to='/blog'>Blog</Link>
-						</h2>
+						<h2>Blog</h2>
 						{blogPosts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
 							return <Post node={node} key={node.fields.slug} sticky={true} />;
 						})}
 						{blogPosts.filter(({ node }) => !node.frontmatter.sticky).map(({ node }) => {
 							return <Post node={node} key={node.fields.slug} />;
 						})}
-
-						<Link to='/blog'>View more Blog Posts</Link>
 					</Fragment>
 				)}
-				{musicPosts &&
-				musicPosts.length > 0 && (
-					<Fragment>
-						<h2>Music</h2>
-						{musicPosts.filter(({ node }) => node.frontmatter.sticky).map(({ node }) => {
-							return <Post node={node} key={node.fields.slug} sticky={true} />;
-						})}
-						{musicPosts.filter(({ node }) => !node.frontmatter.sticky).map(({ node }) => {
-							return <Post node={node} key={node.fields.slug} />;
-						})}
-					</Fragment>
-				)}
+				<Bio />
 			</Layout>
 		);
 	}
@@ -108,31 +91,9 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		music: allMarkdownRemark(
-			filter: { frontmatter: { category: { eq: "music" } } }
-			sort: { fields: [frontmatter___date], order: DESC }
-			limit: 3
-		) {
-			edges {
-				node {
-					excerpt
-					fields {
-						slug
-					}
-					frontmatter {
-						date(formatString: "MMMM DD, YYYY")
-						title
-						tags
-						sticky
-						category
-					}
-				}
-			}
-		}
 		blog: allMarkdownRemark(
 			filter: { frontmatter: { category: { eq: "web" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
-			limit: 3
 		) {
 			edges {
 				node {

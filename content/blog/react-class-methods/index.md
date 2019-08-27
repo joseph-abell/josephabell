@@ -1,6 +1,7 @@
 ---
 title: React Class Methods Cheatsheet
 date: '2019-07-23T11:00:00.000Z'
+category: 'web'
 tags: 'React'
 sticky: false
 ---

@@ -1,6 +1,7 @@
 ---
 title: Monoids
 date: '2019-03-20T19:00:00.000Z'
+category: 'web'
 tags: 'Functional Programming'
 sticky: false
 ---

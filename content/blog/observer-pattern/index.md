@@ -1,6 +1,7 @@
 ---
 title: Observer Pattern
 date: '2019-07-12T15:13:00.000Z'
+category: 'web'
 tags: 'Object Oriented Programming'
 sticky: false
 ---

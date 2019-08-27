@@ -1,6 +1,7 @@
 ---
 title: Strategy Pattern
 date: '2019-07-11T22:34:00.000Z'
+category: 'web'
 tags: 'Object Oriented Programming'
 sticky: false
 ---

@@ -1,6 +1,7 @@
 ---
 title: Typescript Types Cheatsheet
 date: '2019-07-23T12:00:00.000Z'
+category: 'web'
 tags: 'Types'
 sticky: false
 ---

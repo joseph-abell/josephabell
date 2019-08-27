@@ -1,6 +1,7 @@
 ---
 title: CV
 date: '2019-07-17T22:47:00.000Z'
+category: 'cv'
 tags: 'Job Hunting'
 sticky: true
 ---

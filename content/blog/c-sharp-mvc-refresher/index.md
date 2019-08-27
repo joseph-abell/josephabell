@@ -1,6 +1,7 @@
 ---
 title: C# .NET MVC Refresher
 date: '2019-07-16T07:13:08.000Z'
+category: 'web'
 tags: 'C# .NET MVC'
 sticky: false
 ---

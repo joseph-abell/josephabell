@@ -1,6 +1,7 @@
 ---
 title: Functional Programming
 date: '2019-04-20T21:00:00.000Z'
+category: 'web'
 tags: 'Functional Programming'
 sticky: false
 ---

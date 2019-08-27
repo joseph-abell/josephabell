@@ -1,6 +1,7 @@
 ---
 title: React Hooks
 date: '2019-07-22T21:00:00.000Z'
+category: 'web'
 tags: 'React'
 sticky: false
 ---

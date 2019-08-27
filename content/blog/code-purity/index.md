@@ -1,6 +1,7 @@
 ---
 title: Code Purity
 date: '2019-02-24T07:00:00.000Z'
+category: 'web'
 tags: 'Development Practises'
 sticky: false
 ---

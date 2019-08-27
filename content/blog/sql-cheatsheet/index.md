@@ -1,6 +1,7 @@
 ---
 title: SQL Cheatsheet
 date: '2019-07-15T21:40:00.000Z'
+category: 'web'
 tags: 'SQL'
 sticky: false
 ---
