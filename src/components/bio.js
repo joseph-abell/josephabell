@@ -31,7 +31,7 @@ function Bio() {
               }}
             />
             <p>
-              <strong>{author}</strong> is a Ukulele playing Wevb Dev from York, UK.
+              <strong>{author}</strong> is a Ukulele playing Web Dev from York, UK.
               He blogs to help remind him about things he has learned.
             </p>
           </div>
