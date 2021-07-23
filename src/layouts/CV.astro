@@ -1,0 +1,35 @@
+---
+import { Markdown } from 'astro/components';
+import BaseHead from '../components/BaseHead.astro';
+
+const {content} = Astro.props;
+const {title, description, permalink} = content;
+---
+<html lang={ content.lang || 'en' }>
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+    <link rel="stylesheet" href="/blog.css" />
+    <style>
+    :global(.cv p) {
+        margin-bottom: 20px;
+    }
+    :global(.cv) {
+        margin-bottom: 40px;
+    }
+    :global(.cv h1) {
+        margin-top: 50px;
+    }
+    </style>
+  </head>
+
+  <body>
+      <div class="layout">
+          <article class="content">
+          <div class="cv">
+            <slot />
+          </div>         
+          
+          </article>
+  </body>
+</html>
+

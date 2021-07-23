@@ -1,0 +1,100 @@
+---
+// Component Imports
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+import Puzzle from '../components/Puzzle.astro';
+
+let title = 'Sudoku Difficulty Definitions - Joseph Abell';
+let description = 'What I mean when I say easy';
+let permalink = 'https://www.josephabell.co.uk/difficulty';
+
+// Data Fetching: List all Markdown posts in the repo.
+let allPosts = Astro.fetchContent('./posts/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+let allPuzzles = Astro.fetchContent('./puzzles/*.md');
+allPuzzles = allPuzzles.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+console.log(allPuzzles);
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+    <link rel="stylesheet" href="/blog.css" />
+
+    <style>
+      body {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 3.5rem 1fr;
+        --gutter: 0.5rem;
+        --doc-padding: 2rem;
+      }
+
+      header {
+        width: 100%;
+        height: 100%;
+        background-color: var(--theme-bg-offset);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content {
+        margin-top: 4rem;
+        margin-bottom: 8rem;
+      }
+
+      .content :global(main > * + *) {
+        margin-top: 1rem;
+      }
+
+      .intro {
+        padding-bottom: 4rem;
+        margin-bottom: 2rem;
+        border-bottom: 4px solid var(--theme-divider);
+      }
+
+      .intro > * {
+        margin: 0;
+      }
+
+      .latest {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .puzzles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 40px;
+      }
+
+      dt {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <BlogHeader />
+    <div class="layout">
+      <article class="content">
+        <h2>Sudoku Difficulty Definitions</h2>
+        <dl>
+          <dd>Easy:</dd>
+          <dt>No complex deduction needed. You should be able to solve puzzles by searching for cells where only one number can go. The most complex it should get is to ask you to recognise a pair of numbers are locked into a grid, so other numbers cannot go in those cells.</dt>
+
+          <dd>Medium:</dd>
+          <dt>Knowledge of some advanced topics is required. Examples of these are, x-wing, y-wing, and swordfish techniques. You shouldn't need to use these techniques more than 2-3 times to solve a puzzle.</dt>
+        </dl>
+      </article>
+    </div>
+  </body>
+</html>
+
