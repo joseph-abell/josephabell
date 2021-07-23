@@ -103,7 +103,7 @@ allPuzzles = allPuzzles.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.
 
       <article>
         <h2>Sudoku</h2>
-        <p>If you want to see which difficulty level is for you, read my <a href="/difficulty">sudoku difficulty definitions</a>.</p>
+        <p>If you want to see which difficulty level is for you, read <a href="/difficulty">sudoku difficulty definitions</a>.</p>
         <section class="puzzles">
           {allPuzzles.map(puzzle => <Puzzle puzzle={puzzle} />)}
         </section>
