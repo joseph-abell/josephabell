@@ -10,10 +10,11 @@ let description = 'CV and Sudoku';
 let permalink = 'https://josephabell.co.uk/';
 
 let allPosts = Astro.fetchContent('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+allPosts = allPosts.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.publishDate));
 
 let allPuzzles = Astro.fetchContent('./puzzles/*.md');
-allPuzzles = allPuzzles.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+allPuzzles = allPuzzles.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.publishDate));
+
 ---
 <html lang="en">
   <head>
@@ -92,7 +93,7 @@ allPuzzles = allPuzzles.sort((a, b) => new Date(b.publishDate) - new Date(a.publ
         <p>
         Joseph Abell is a full stack typescript developer based in York UK.
         He plays ukulele, sings in a choir, makes electronics, creates <strong>awesome</strong> cocktails,
-        and creates sudoku puzzles for his friends. He loves watching Bluey with his daughter.
+        and sets sudoku puzzles for his friends. He loves watching Bluey with his daughter.
         </p>
         <p>
         <img src="/gerbils.jpg" alt="Illustration of Joe Abell" />
