@@ -43,7 +43,6 @@ allPuzzles = allPuzzles.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.
         margin-top: 2rem;
       }
 
-
       .content :global(main > * + *) {
         margin-top: 1rem;
       }
@@ -77,11 +76,18 @@ allPuzzles = allPuzzles.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.
       p {
         margin-bottom: 20px;
       }
+
       img {
         border-radius: 100000px;
         width: 150px;
         margin: 20px 20px 0;
         display: inline-block;
+      }
+
+      .images {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
       }
     </style>
   </head>
@@ -95,9 +101,9 @@ allPuzzles = allPuzzles.sort((a, b) => Date.parse(b.publishDate) - Date.parse(a.
         He plays ukulele, sings in a choir, makes electronics, creates <strong>awesome</strong> cocktails,
         and sets sudoku puzzles for his friends. He loves watching Bluey with his daughter.
         </p>
-        <p>
-        <img src="/gerbils.jpg" alt="Illustration of Joe Abell" />
-        <img src="/ladyabell.png" alt="Illutration of Joe's Daughter" />
+        <p class="images">
+          <img src="/gerbils.jpg" alt="Illustration of Joe Abell" />
+          <img src="/ladyabell.png" alt="Illutration of Joe's Daughter" />
         </p>
       </article>
 
