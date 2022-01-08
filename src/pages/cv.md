@@ -1,13 +1,13 @@
 ---
-title: 'CV'
+title: "CV"
 description: "CV for Joseph Abell"
-layout: '../layouts/CV.astro'
-permalink: 'https://josephabell.co.uk/cv'
+layout: "../layouts/CV.astro"
+permalink: "https://josephabell.co.uk/cv"
 ---
 
 # CV - Joseph Abell
 
-I'm Joseph Abell, a full stack Typescript developer with over 8 years experience. I'm currently working at Isotoma,
+I'm Joseph Abell, a full stack Typescript developer with 11 years experience. I'm currently working at Isotoma,
 based in York, UK. I also develop websites for my wife's company, Abell Design, when time allows.
 
 ## Contact
@@ -22,7 +22,7 @@ My ideal tech stack is a combination of:
 - Redux Web Kit (RTK Query)
 - Typescript
 - GraphQL
-- AWS CDK (Cloud Development Kit) 
+- AWS CDK (Cloud Development Kit)
 - Lambda (Typescript)
 - AppSync, but Api Gateway is also fine
 - S3
@@ -52,7 +52,7 @@ March 2015 - September 2019
 My job at Piksel changed over time, I was there a while, but at the end I
 helped a large, multi-national team of 20+ developers to create a custom CMS for media companies.
 I helped take an old Angular 1.5 app and rewrote it into a react app. I thoroughly
-enjoyed working with a team of developers from Spain and Vietnam. 
+enjoyed working with a team of developers from Spain and Vietnam.
 
 Also at Piksel I helped write a white label Video on Demand application
 for web, android, ios and televisions.
