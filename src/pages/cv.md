@@ -37,7 +37,7 @@ Feb 2020 - current
 
 I'm a full stack developer working on complex web applications.
 As the teams at Isotoma are small, I'm trusted to deliver all aspects of
-web apps. The usual tech stack includes React, typescript, AWS lambda, and dynamodb.
+web apps. The usual tech stack includes React, Typescript, AWS lambda, and dynamodb.
 
 ### Netsells - Senior Javascript Developer
 
